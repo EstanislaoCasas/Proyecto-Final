@@ -1,8 +1,27 @@
+* {
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+header {
+  background-color: red;
+}
+
+.header {
+  display: flex;
+}
+
+.search input{
+  border: none;
+  margin: 0px;
+}
+
+.btn {
+  background-color: white;
+  border: none;
+  border-left-color: grey;
 }
