@@ -7,8 +7,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+/*Header*/
 header {
-  background-color: red;
+  background-color: rgb(74, 133, 209);
 }
 
 .header {
@@ -24,4 +25,13 @@ header {
   background-color: white;
   border: none;
   border-left-color: grey;
+}
+
+.collapse ul li a {
+  color: white;
+}
+
+/*Footer*/
+footer {
+  background-color: rgb(74, 133, 209);
 }
