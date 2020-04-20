@@ -7,13 +7,18 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+li {
+  list-style: none;
+}
+
 /*Header*/
 header {
   background-color: rgb(74, 133, 209);
+  color: rgba(255, 255, 255, 0.637);
 }
 
-.header {
-  display: flex;
+.logo {
+  text-align: center;
 }
 
 .search input{
@@ -24,14 +29,54 @@ header {
 .btn {
   background-color: white;
   border: none;
-  border-left-color: grey;
+}
+
+.collapse ul li {
+  border: 0px;
+  justify-content: center;
 }
 
 .collapse ul li a {
   color: white;
+  justify-content: center;
+}
+
+.body {
+  background-color: #e0e0e0;;
 }
 
 /*Footer*/
-footer {
+.footer-container {
   background-color: rgb(74, 133, 209);
+}
+
+footer {
+  border-bottom: 1px solid white;
+  padding-top: 20px;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact li {
+  text-align: center;
+}
+
+.contact li a {
+  color: white;
+}
+
+.sub-footer {
+  color: white;
+  background-color: rgb(74, 133, 209);
+}
+
+.sub-footer p {
+  text-align: center;
+  padding: 5px;
+  border: none;
+  margin-block-end: 0px;
 }

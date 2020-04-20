@@ -1,0 +1,45 @@
+/* Slider */
+
+.carousel-container {
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+.d-block {
+    margin: auto;
+}
+
+/* Productos */
+.article-box {
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 300ms;
+    margin: 20px 0;
+    
+}
+
+.article-data {
+    padding: 15px;
+}
+
+.imagen-producto {
+    width: 100%;
+}
+
+.article-data h3 {
+    text-align: center;
+}
+
+.article-box p {
+    text-align: center;
+}
+
+.button-container {
+    position: relative;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.btn {
+    color: #007bff;
+}
