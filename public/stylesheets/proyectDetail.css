@@ -1,0 +1,60 @@
+.body {
+    padding: 2% 10%;
+}
+
+.producto {
+    background-color: white; 
+    padding: 0px 10px;
+}
+
+.image {
+    padding: 10px;
+    text-align: center;
+    align-self: center;
+    border-bottom: 1px solid black;
+    margin: auto;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-weight: bold;
+    padding-bottom: 10px;
+    margin: 0px;
+    text-align: center;
+}
+
+h4 {
+    text-decoration: underline;
+    margin: 0px;
+    text-align: center;
+}
+
+h5 {
+    padding: 10px 0px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0px;
+    text-align: center;
+}
+
+.buttons {
+    padding: 10px 0px;
+    justify-content: space-around;
+}
+
+.edit {
+    color: rgb(56, 56, 56);
+    border: 2px solid rgb(56, 56, 56);      
+}
+
+.space{
+    border: 5px solid white;
+}
+
+.contribute {
+    color: blue;
+    border: 2px solid blue;
+}

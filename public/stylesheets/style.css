@@ -7,6 +7,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.body{
+  background-color: #e0e0e0;
+}
+
 li {
   list-style: none;
 }
@@ -14,7 +18,7 @@ li {
 /*Header*/
 header {
   background-color: rgb(74, 133, 209);
-  color: rgba(255, 255, 255, 0.637);
+  color: white
 }
 
 .logo {
@@ -42,7 +46,7 @@ header {
 }
 
 .body {
-  background-color: #e0e0e0;;
+  background-color: #e0e0e0;
 }
 
 /*Footer*/
