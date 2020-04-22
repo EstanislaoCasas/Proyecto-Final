@@ -2,7 +2,7 @@
     padding: 2% 10%;
 }
 
-.producto {
+.proyecto {
     background-color: white; 
     padding: 0px 10px;
 }
@@ -47,7 +47,8 @@ h5 {
 
 .edit {
     color: rgb(56, 56, 56);
-    border: 2px solid rgb(56, 56, 56);      
+    border: 2px solid rgb(56, 56, 56); 
+    background-color: white;     
 }
 
 .space{
@@ -57,4 +58,5 @@ h5 {
 .contribute {
     color: blue;
     border: 2px solid blue;
+    background-color: white;
 }

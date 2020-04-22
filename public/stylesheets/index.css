@@ -7,40 +7,5 @@
 .d-block {
     margin: auto;
     height: auto;
-}
-
-/* Productos */
-.proyect-box {
-    background-color: #ffffff;
-    border-radius: 5px;
-    overflow: hidden;
-    transition: 300ms;
-    margin: 20px 0;
-    
-}
-
-.proyect-data {
-    padding: 15px;
-}
-
-.imagen-producto {
-    width: 100%;
-}
-
-.proyect-data h1 {
-    text-align: center;
-}
-
-.proyect-box h5 {
-    text-align: center;
-}
-
-.button-container {
-    position: relative;
-    text-align: center;
-    padding-bottom: 20px;
-}
-
-.btn {
-    color: #007bff;
+    border-radius: 10px;
 }

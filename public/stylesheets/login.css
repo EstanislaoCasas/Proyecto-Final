@@ -4,11 +4,11 @@
 
 .container {
     background-color: white; 
-    padding: 0px 10px;
+    
 }
 
 form {
-    padding: 40px;
+    padding: 20px;
 }
 
 h1 {
@@ -16,19 +16,11 @@ h1 {
     border: 2px solid blue;
 }
 
-form div {
-    padding: 10px 0px;
+.form-group {
+    margin-top: 20px;
 }
 
-form {
+label {
     font-weight: bold;
     text-align: center;
-}
-
-.input-group-prepend {
-    padding: 0px;
-}
-
-.custom-file-label {
-    text-align: start;
 }

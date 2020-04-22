@@ -30,7 +30,7 @@ header {
   margin: 0px;
 }
 
-.btn {
+.input-group-append button {
   background-color: white;
   border: none;
 }
@@ -45,8 +45,36 @@ header {
   justify-content: center;
 }
 
-.body {
-  background-color: #e0e0e0;
+/*Proyectos*/
+.proyect-box {
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 300ms;
+  margin: 20px 0;
+  
+}
+
+.proyect-data {
+  padding: 15px;
+}
+
+.imagen-proyecto {
+  width: 100%;
+}
+
+.proyect-data h1 {
+  text-align: center;
+}
+
+.proyect-box h5 {
+  text-align: center;
+}
+
+.button-container {
+  position: relative;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 /*Footer*/

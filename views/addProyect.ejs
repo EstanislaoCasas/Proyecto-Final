@@ -8,16 +8,39 @@
     
     <%- include('partials/header') %>
     
-    <div>
-        <label for="nombre">Nombre</label><br>
-        <input type="text" name="name" id="nombre" class="name"><br>
-        <label for="descripcion">Tipo de proyecto</label><br>
-        <input type="text" name="description" id="type" class="type"><br>
-        <label for="descripcion">Descripción</label><br>
-        <input type="text" name="description" id="description" class="description"><br>
-        <label for="nombre">Imágen de portada</label><br>
-        <input type="text" name="img1" id="img1" class="img1"><br>
-        
+    <div class="body">
+        <div class="container">
+            <form>
+                <h1>Subir un proyecto</h1>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-12 col-form-label">Título</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Título">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-12 col-form-label">Tipo de proyecto</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Tipo de proyecto">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-12 col-form-label">Descripción</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Descripción">
+                </div>
+                <div class="input-group mb-2 mr-sm-2">
+                    <label for="inputEmail3" class="col-sm-12 col-form-label">Cantidad de dinero a recaudar</label>
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">$</div>
+                    </div>
+                    <input type="number" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Dinero a recaudar">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-12 col-form-label">Seleccionar archivo</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                        <label class="custom-file-label" for="validatedCustomFile">Seleccionar archivo...</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Subir</button>
+            </form>
+        </div>
     </div>
 
     <%- include('partials/footer') %>

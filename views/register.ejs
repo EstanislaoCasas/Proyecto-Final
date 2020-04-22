@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/register.css">
+</head>
+<body>
+    
+    <%- include('partials/header') %>
+    
+    <div class="body">
+      <div class="container">
+        <form>
+          <h1>Registrarse</h1>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputNombre4" class="col-md-12">Nombre</label>
+              <input type="text" class="form-control" id="inputNombre4" placeholder="Nombre">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputApellido4" class="col-md-12">Apellido</label>
+              <input type="text" class="form-control" id="inputApellido4" placeholder="Apellido">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-12 col-form-label">Correo Electrónico</label>
+            <div class="col-sm-12">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Mail">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-12 col-form-label">Contraseña</label>
+            <div class="col-sm-12">
+              <input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-12 col-form-label">Seleccionar imágen de perfil</label>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                <label class="custom-file-label" for="validatedCustomFile">Seleccionar archivo...</label>
+            </div>
+          </div>
+          <label for="inputEmail3" class="col-sm-12 col-form-label">Tipo de usuario</label>
+          <select class="form-control form-control-sm">
+            <option selected>Elegír tipo de usuario</option>
+            <option>Donante</option>
+            <option>Emprendedor</option>
+          </select>
+          <div class="input-group mb-2 mr-sm-2">
+            <label for="inputEmail3" class="col-sm-12 col-form-label">Cantidad de dinero que quieres ingresar</label>
+            <div class="input-group-prepend">
+              <div class="input-group-text">$</div>
+            </div>
+            <input type="number" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Ingresar dinero">
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
