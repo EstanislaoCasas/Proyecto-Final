@@ -35,14 +35,17 @@ header {
   border: none;
 }
 
+.collapse ul {
+  align-content: flex-end;
+}
+
 .collapse ul li {
   border: 0px;
-  justify-content: center;
 }
 
 .collapse ul li a {
   color: white;
-  justify-content: center;
+  text-align: end;
 }
 
 /*Proyectos*/

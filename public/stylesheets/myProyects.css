@@ -1,0 +1,56 @@
+.body {
+    padding: 2% 10%;
+}
+
+.container {
+    background-color: white; 
+    padding: 0px 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h3 {
+    margin: 0px;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 10px;
+}
+
+.vigente {
+    display: flex;
+    border-top: 1px solid black;
+}
+
+.image {
+    padding: 10px;
+    text-align: center;
+    align-self: center;
+    margin: 0px;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+}
+
+.description {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h4 {
+    text-decoration: underline;
+    margin: 0px;
+}
+
+.edit {
+    margin-top: 6px;
+}
+
+p {
+    padding: 15px;
+}

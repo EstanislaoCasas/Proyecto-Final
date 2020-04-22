@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('partials/head') %>
-    <link rel="stylesheet" href="/stylesheets/register.css">
+    <link rel="stylesheet" href="/stylesheets/edit.css">
 </head>
 <body>
     
@@ -11,7 +11,7 @@
     <div class="body">
       <div class="container">
         <form>
-          <h1>Registrarse</h1>
+          <h1>Editar Perfil</h1>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputNombre4" class="col-md-12">Nombre</label>
@@ -35,31 +35,22 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="inputEmail3" class="col-sm-12 col-form-label">Seleccionar imágen de perfil</label>
+            <label for="inputEmail3" class="col-sm-12 col-form-label">Imágen de perfil</label>
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="validatedCustomFile" required>
                 <label class="custom-file-label" for="validatedCustomFile">Seleccionar archivo...</label>
             </div>
           </div>
-          <div class="form-group">
-            <label for="inputEmail3" class="col-sm-12 col-form-label">Tipo de usuario</label>
-            <select class="form-control form-control-sm">
-              <option selected>Elegír tipo de usuario</option>
-              <option>Donante</option>
-              <option>Emprendedor</option>
-            </select>
-          </div>
           <div class="cantidad input-group mb-2 mr-sm-2">
-            <label for="inputEmail3" class="col-sm-12 col-form-label">Cantidad de dinero que quieres ingresar</label>
+            <label for="inputEmail3" class="col-sm-12 col-form-label">Cantidad de dinero que quieres agregar</label>
             <div class="input-group-prepend">
               <div class="input-group-text">$</div>
             </div>
-            <input type="number" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Ingresar dinero">
+            <input type="number" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Agregar dinero">
           </div>
           <div class="form-group row">
             <div class="col-sm-12">
-              <button type="submit" class="btn btn-primary">Registrarme</button>
-              ¿Ya tienes una cuenta? <a href="/users/login">Iniciar Sesión</a>
+              <button type="submit" class="btn btn-primary">Editar</button>
             </div>
           </div>
         </form>

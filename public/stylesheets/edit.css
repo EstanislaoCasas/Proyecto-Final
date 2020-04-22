@@ -33,12 +33,6 @@ label {
     text-align: start;
 }
 
-select {
-    margin-top: 20px;
-    text-align: center;
-    margin: 5px;
-}
-
 .cantidad {
     margin-top: 20px;
     text-align: center;
@@ -47,8 +41,4 @@ select {
 
 .input-group label {
     margin-top: 20px;
-}
-
-.form-group button {
-    margin-right: 20px;
 }

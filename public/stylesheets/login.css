@@ -4,7 +4,6 @@
 
 .container {
     background-color: white; 
-    
 }
 
 form {
@@ -23,4 +22,8 @@ h1 {
 label {
     font-weight: bold;
     text-align: center;
+}
+
+.form-group button {
+    margin-right: 20px;
 }
