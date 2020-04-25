@@ -48,8 +48,8 @@ header {
   text-align: end;
 }
 
-/*Proyectos*/
-.proyect-box {
+/*projects*/
+.project-box {
   background-color: #ffffff;
   border-radius: 5px;
   overflow: hidden;
@@ -58,19 +58,19 @@ header {
   
 }
 
-.proyect-data {
+.project-data {
   padding: 15px;
 }
 
-.imagen-proyecto {
+.imagen-project {
   width: 100%;
 }
 
-.proyect-data h1 {
+.project-data h1 {
   text-align: center;
 }
 
-.proyect-box h5 {
+.project-box h5 {
   text-align: center;
 }
 

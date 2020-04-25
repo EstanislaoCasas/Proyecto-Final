@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('partials/head') %>
-    <link rel="stylesheet" href="/stylesheets/addProyect.css">
+    <link rel="stylesheet" href="/stylesheets/addProject.css">
 </head>
 <body>
     
@@ -10,31 +10,31 @@
     
     <div class="body">
         <div class="container">
-            <form>
-                <h1>Subir un proyecto</h1>
+            <form method="GET" action="">
+                <h1>Subir un Proyecto</h1>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-12 col-form-label">Título</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Título">
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="title" placeholder="Título">
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-12 col-form-label">Tipo de proyecto</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Tipo de proyecto">
+                    <input type="text" class="form-control" id="formGroupExampleInput2" name="typeOfProject" placeholder="Tipo de proyecto">
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-12 col-form-label">Descripción</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Descripción">
+                    <input type="text" class="form-control" id="formGroupExampleInput2" name="description" placeholder="Descripción">
                 </div>
                 <div class="input-group mb-2 mr-sm-2">
                     <label for="inputEmail3" class="col-sm-12 col-form-label">Cantidad de dinero a recaudar</label>
                     <div class="input-group-prepend">
                       <div class="input-group-text">$</div>
                     </div>
-                    <input type="number" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Dinero a recaudar">
+                    <input type="number" class="form-control" id="inlineFormInputGroupUsername2" name="projectAmount" placeholder="Dinero a recaudar">
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-12 col-form-label">Seleccionar archivo</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                        <input type="file" class="custom-file-input" name="image" id="validatedCustomFile" required>
                         <label class="custom-file-label" for="validatedCustomFile">Seleccionar archivo...</label>
                     </div>
                 </div>

@@ -10,18 +10,18 @@
     
     <div class="body">
         <div class="container">
-            <form>
+            <form method="POST" action="/users/login">
               <h1>Iniciar Sesión</h1>
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-12 col-form-label">Correo Electrónico</label>
                 <div class="col-sm-12">
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Mail">
+                  <input type="email" class="form-control" id="inputEmail3" name="email" placeholder="Email">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="inputPassword3" class="col-sm-12 col-form-label">Contraseña</label>
                 <div class="col-sm-12">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
+                  <input type="password" class="form-control" id="inputPassword3" name="password" placeholder="Contraseña">
                 </div>
               </div>
               <div class="form-group row">
