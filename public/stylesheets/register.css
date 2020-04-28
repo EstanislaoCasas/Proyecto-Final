@@ -29,8 +29,9 @@ label {
     text-align: center;
 }
 
-.custom-file-label {
+.custom-file-input {
     text-align: start;
+    border: 1px solid #ced4da;
 }
 
 select {

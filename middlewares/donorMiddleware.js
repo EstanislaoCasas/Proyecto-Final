@@ -1,9 +1,11 @@
 const fs = require('fs');
 
 function donorMiddleware(req, res, next) {
-    fs.appendFileSync('log.txt', 'Se ingresó a ' + req.url)
-
-    next();
+    if (req.session.usuarioLogueado != undefined){
+        next();
+    } else {
+        res.render('register')
+    }
 }
 
-module.exports = donorMiddleware;
+module.exports = donorMiddleware

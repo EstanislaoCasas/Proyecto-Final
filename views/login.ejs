@@ -21,9 +21,20 @@
               <div class="form-group row">
                 <label for="inputPassword3" class="col-sm-12 col-form-label">Contraseña</label>
                 <div class="col-sm-12">
-                  <input type="password" class="form-control" id="inputPassword3" name="password" placeholder="Contraseña">
+                  <input type="password" class="form-control" id="inputPassword3" name="password" placeholder="Contraseña" minlength="6" required>
                 </div>
               </div>
+              <% if (typeof errors != 'undefined') { %>
+                <p style="color:red">
+                  <ul>
+                    <% for (let i = 0; i < errors.length; i++) { %>
+                      <li style="color: red; padding-left: 10px">
+                        <%= errors[i].msg %>
+                      </li>
+                    <% } %>
+                  </ul>
+                </p>
+              <% } %>
               <div class="form-group row">
                 <div class="col-sm-12">
                   <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
