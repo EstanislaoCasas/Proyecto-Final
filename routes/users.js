@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var usersController = require('../controllers/usersController.js');
-let donorMiddleware = require('../middlewares/donorMiddleware');
 let { check, validationResult, body } = require('express-validator');
 let multer = require('multer');
 let path = require('path');
-let fs = require('fs')
+let fs = require('fs');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -19,7 +18,7 @@ var storage = multer.diskStorage({
   var upload = multer({ storage: storage })
 
 router.get('/register', usersController.registro);
-router.post('/register', upload.any(), donorMiddleware, [
+router.post('/register', upload.any(), [
     check('first_name').isLength({max: 45}),
     check('last_name').isLength({max: 45}),
     check('email').isEmail().withMessage('Email inválido'),
@@ -54,5 +53,12 @@ router.get('/edit/:idUser', usersController.editar);
 
 router.get('/list', usersController.list);
 
+router.get('/check', function(req, res) {
+  if (req.session.login == undefined) {
+    res.send('No estas logueado');
+  } else {
+    res.send('El usuario Logueado es ' + req.session.login.email);
+  }
+})
 
 module.exports = router;

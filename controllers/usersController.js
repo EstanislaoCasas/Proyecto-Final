@@ -59,24 +59,23 @@ let usersController= {
           }
 
           for (let i = 0; i < usuarios.length; i++) {
-            if (req.body.email == usuarios[i].email && bcrypt.compareSync(req.body.password , usuarios[i].password)) {
-              var usuarioALoguearse = usuarios[i]
+            if (req.body.email == usuarios[i].email) {
+              if (bcrypt.compareSync(req.body.password, usuarios[i].password)) {
+                var usuarioALoguearse = usuarios[i];
               break;
-            } 
+              }
+            }
           }
           if (usuarioALoguearse == undefined) {
             return res.render('login', {errors: [
               {msg: 'Datos inválidos'}
             ]});
           }
-
-          req.session.usuarioLogueado = usuarioALoguearse;
+          req.session.login = usuarioALoguearse;
+          res.render('index');
         } else {
           return res.render('login', {errors: errors.errors});
-        }
-
-        
-        
+        }        
       },
       
       misProyectos: function(req, res, next) {
