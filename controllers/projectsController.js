@@ -21,6 +21,7 @@ let projectsController= {
             amount: req.body.amount,
             avatar: req.body.avatar
         });
+        
         res.redirect('/');
     },
     editar: function(req, res) {

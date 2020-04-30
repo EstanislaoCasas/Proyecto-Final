@@ -2,19 +2,6 @@
     <div class="container">
         <div class="projects-container">
             <div class="row projects">
-                <% for (let i = 0; i < proyectos.length; i++) { %>
-                    <section class="col-sm-12 col-md-6 col-lg-4">
-                        <div class="project-box">
-                            <a href="">
-                                <img src="" alt="imagen project" class="imagen-project">
-                                <div class="project-data">
-                                    <h1><%= proyectos[i].title %></h1>
-                                </div>
-                            </a>
-                            <h5><%= proyectos[i].short_description %></h5>
-                        </div>
-                    </section>
-                    <% } %>
                 <section class="col-sm-12 col-md-6 col-lg-4">
                     <div class="project-box">
                         <a href="">
@@ -103,6 +90,19 @@
                         <h5>Tienda en Internet.</h5>
                     </div>
                 </section>
+                <% for (let i = 0; i < proyectos.length; i++) { %>
+                    <section class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="project-box">
+                            <a href="">
+                                <img src="" alt="imagen project" class="imagen-project">
+                                <div class="project-data">
+                                    <h1><%= proyectos[i].title %></h1>
+                                </div>
+                            </a>
+                            <h5><%= proyectos[i].short_description %></h5>
+                        </div>
+                    </section>
+                <% } %>
             </div>
         </div>
     </div>

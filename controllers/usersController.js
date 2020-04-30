@@ -3,6 +3,7 @@ let fs = require('fs');
 let path = require('path')
 let {check, validationResult, body} = require('express-validator');
 let usersData = path.join('data', 'users.json');
+let db = require('../database/models');
 
 let usersController= {
       registro: function(req, res, next) {
@@ -27,11 +28,22 @@ let usersController= {
           let archivoUsuario = fs.readFileSync(usersData, {encoding: 'utf-8'});
           let usuarios;
           if (archivoUsuario == '') {
-            usuarios = [];
+              usuarios = [];
           } else {
-            usuarios = JSON.parse(archivoUsuario);
+              usuarios = JSON.parse(archivoUsuario);
           }
 
+          db.Usuarios.create({
+            name: req.body.first_name + req.body.last_name,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            identification_number: req.body.document,
+            password: bcrypt.hashSync(req.body.password, 10),
+            avatar: req.files[0].filename,
+            type: req.body.type,
+            amount: req.body.amount
+          });
           usuarios.push(usuario);
 
           usuariosJSON = JSON.stringify(usuarios);
@@ -71,11 +83,12 @@ let usersController= {
               {msg: 'Datos inválidos'}
             ]});
           }
-          req.session.login = usuarioALoguearse;
+          usuarioALoguearse = req.session.login;
+          console.log(usuarioALoguearse)
           res.render('index');
         } else {
           return res.render('login', {errors: errors.errors});
-        }        
+        } 
       },
       
       misProyectos: function(req, res, next) {

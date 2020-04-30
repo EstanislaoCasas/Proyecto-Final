@@ -8,6 +8,12 @@ module.exports = (sequelize, dataTypes) => {
         },
         amount: {
             type: dataTypes.INTEGER
+        },
+        created_at: {
+            type: dataTypes.DATE
+        },
+        updated_at: {
+            type: dataTypes.DATE
         }
     };
     let config = {

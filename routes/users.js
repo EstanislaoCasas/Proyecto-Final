@@ -5,19 +5,20 @@ let { check, validationResult, body } = require('express-validator');
 let multer = require('multer');
 let path = require('path');
 let fs = require('fs');
+let usersMiddleware = require('../middlewares/usersMiddleware')
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'data/avatars')
+      cb(null, 'data/usersAvatars')
     },
     filename: function (req, file, cb) {
       cb(null, file.fieldname + '-' + Date.now() +path.extname(file.originalname))
     }
   })
-   
+  
   var upload = multer({ storage: storage })
 
-router.get('/register', usersController.registro);
+router.get('/register', usersMiddleware, usersController.registro);
 router.post('/register', upload.any(), [
     check('first_name').isLength({max: 45}),
     check('last_name').isLength({max: 45}),
