@@ -18,9 +18,6 @@ module.exports = (sequelize, dataTypes) => {
         amount: {
             type: dataTypes.INTEGER
         },
-        avatar: {
-            type: dataTypes.STRING
-        },
         created_at: {
             type: dataTypes.DATE
         },
@@ -33,6 +30,13 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     };
     const Proyecto = sequelize.define(alias, cols, config);
+
+    Proyecto.associate = function(models) {
+        Proyecto.belongsTo(models.Usuarios, {
+            as: 'fk_projects_users',
+            foreignKey: 'user_id'
+        });
+    }
 
     return Proyecto;
 }

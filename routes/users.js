@@ -18,7 +18,7 @@ var storage = multer.diskStorage({
   
   var upload = multer({ storage: storage })
 
-router.get('/register', usersMiddleware, usersController.registro);
+router.get('/register', usersController.registro);
 router.post('/register', upload.any(), [
     check('first_name').isLength({max: 45}),
     check('last_name').isLength({max: 45}),

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var projectsController = require('../controllers/projectsController.js')
+let projectsController = require('../controllers/projectsController.js')
 let { check, validationResult, body } = require('express-validator');
 let multer = require('multer');
 let path = require('path');
@@ -23,5 +23,11 @@ router.get('/add', projectsController.crear);
 router.post('/add', upload.any(), projectsController.agregar);
 
 router.get('/:id', projectsController.detalle);
+
+router.get('/edit/:id', projectsController.editar);
+router.post('/edit/:id', projectsController.update);
+
+router.get('/:id', projectsController.detalle);
+
 
 module.exports = router;

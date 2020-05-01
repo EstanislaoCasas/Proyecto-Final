@@ -40,15 +40,26 @@ h5 {
     text-align: center;
 }
 
+p {
+    font-weight: bold;
+    padding-bottom: 10px;
+    margin: 0px;
+    text-align: center;
+}
+
 .buttons {
     padding: 10px 0px;
     justify-content: space-around;
 }
 
+.buttons a {
+    text-decoration: none;
+}
+
 .edit {
     color: rgb(56, 56, 56);
     border: 2px solid rgb(56, 56, 56); 
-    background-color: white;     
+    background-color: white;
 }
 
 .space{
@@ -59,11 +70,4 @@ h5 {
     color: blue;
     border: 2px solid blue;
     background-color: white;
-}
-
-p {
-    font-weight: bold;
-    padding-bottom: 10px;
-    margin: 0px;
-    text-align: center;
 }

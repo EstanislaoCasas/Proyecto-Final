@@ -74,6 +74,10 @@ header {
   text-align: center;
 }
 
+.project-box p {
+  text-align: center;
+}
+
 /*Footer*/
 .footer-container {
   background-color: rgb(74, 133, 209);
