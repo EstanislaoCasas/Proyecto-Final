@@ -33,10 +33,11 @@ module.exports = (sequelize, dataTypes) => {
 
     Proyecto.associate = function(models) {
         Proyecto.belongsTo(models.Usuarios, {
-            as: 'fk_projects_users',
+            as: 'usuario',
             foreignKey: 'user_id'
-        });
+        })
     }
+
 
     return Proyecto;
 }

@@ -7,19 +7,6 @@
     padding: 0px 10px;
 }
 
-.image {
-    padding: 10px;
-    text-align: center;
-    align-self: center;
-    border-bottom: 1px solid black;
-    margin: auto;
-}
-
-.image img {
-    width: 100%;
-    height: auto;
-}
-
 h1 {
     font-weight: bold;
     padding-bottom: 10px;
@@ -47,6 +34,10 @@ p {
     text-align: center;
 }
 
+.donacion {
+    text-align: center;
+}
+
 .buttons {
     padding: 10px 0px;
     justify-content: space-around;
@@ -63,7 +54,7 @@ p {
 }
 
 .space{
-    border: 5px solid white;
+    border: 10px solid white;
 }
 
 .contribute {

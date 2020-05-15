@@ -5,7 +5,6 @@ let { check, validationResult, body } = require('express-validator');
 let multer = require('multer');
 let path = require('path');
 let fs = require('fs');
-let usersMiddleware = require('../middlewares/usersMiddleware')
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -24,33 +23,22 @@ router.post('/register', upload.any(), [
     check('last_name').isLength({max: 45}),
     check('email').isEmail().withMessage('Email inválido'),
     check('document').isLength({max: 8}),
-    check('amount').isNumeric(),
-    body('email').custom(function(value) {
-      let archivoUsuario = fs.readFileSync('data/users.json', {encoding: 'utf-8'});
-      let usuarios;
-      if (archivoUsuario== '') {
-        usuarios = [];
-      } else {
-        usuarios = JSON.parse(archivoUsuario);
-      }
-
-      for (let i = 0; i < usuarios.length; i++) {
-        if (usuarios[i].email == value) {
-          return false;
-        }
-      }
-      return true;
-    }).withMessage('Usuario ya existente')
-], usersController.create);
+    check('password').isLength({min: 6, max: 20}).withMessage('La contraseña debe tener entre 6 y 20 caractéres'),
+    check('amount').isNumeric()
+  ], usersController.create);
 
 router.get('/login', usersController.login);
 router.post('/login', [
-  check('email').isEmail().withMessage('Email inválido')
+  check('email').isEmail().withMessage('Email inválido'),
+  check('password').isLength({min: 6, max: 20})
 ], usersController.processLogin);
+
+router.get('/logout', usersController.logout);
 
 router.get('/my-projects', usersController.misProyectos);
 
-router.get('/edit/:idUser', usersController.editar);
+router.get('/edit', usersController.editar);
+router.post('/edit', usersController.update);
 
 router.get('/list', usersController.list);
 

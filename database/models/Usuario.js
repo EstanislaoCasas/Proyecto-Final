@@ -41,16 +41,16 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        tableName: 'users',
+        tableName: 'user',
         timestamps: false
     };
     const Usuario = sequelize.define(alias, cols, config);
 
     Usuario.associate = function(models) {
         Usuario.hasMany(models.Proyectos, {
-            as: 'fk_users_projects',
+            as: 'proyectos',
             foreignKey: 'user_id'
-        });
+        })
     }
 
     return Usuario;

@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
 let projectsController = require('../controllers/projectsController.js')
-let { check, validationResult, body } = require('express-validator');
 let multer = require('multer');
 let path = require('path');
-let fs = require('fs');
+var loginMiddleware = require('../middlewares/loginMiddleware');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -17,12 +16,13 @@ var storage = multer.diskStorage({
    
 var upload = multer({ storage: storage })
 
-router.get('/', projectsController.listado);
+router.get('/', loginMiddleware, projectsController.listado);
 
-router.get('/add', projectsController.crear);
+router.get('/add', loginMiddleware, projectsController.crear);
 router.post('/add', upload.any(), projectsController.agregar);
 
 router.get('/:id', projectsController.detalle);
+//router.post('/:id', projectsController.donaciones);
 
 router.get('/edit/:id', projectsController.editar);
 router.post('/edit/:id', projectsController.update);

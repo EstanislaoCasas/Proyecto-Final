@@ -24,6 +24,11 @@ label {
     text-align: center;
 }
 
+.recordarme-label {
+    padding-right: 15px;
+    margin: 0px;
+}
+
 .form-group button {
     margin-right: 20px;
 }

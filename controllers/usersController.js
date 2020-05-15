@@ -2,7 +2,6 @@ let bcrypt = require('bcrypt');
 let fs = require('fs');
 let path = require('path')
 let {check, validationResult, body} = require('express-validator');
-let usersData = path.join('data', 'users.json');
 let db = require('../database/models');
 
 let usersController= {
@@ -10,92 +9,100 @@ let usersController= {
         res.render('register');
       },
       create: function(req, res, next) {
-        let usuario = {
-          first_name: req.body.first_name,
-          last_name: req.body.last_name,
-          email: req.body.email,
-          document: req.body.document,
-          password: bcrypt.hashSync(req.body.password, 10),
-          avatar: req.files[0].filename,
-          type: req.body.type,
-          amount: req.body.amount
-        }
-        
         let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-
-          let archivoUsuario = fs.readFileSync(usersData, {encoding: 'utf-8'});
-          let usuarios;
-          if (archivoUsuario == '') {
-              usuarios = [];
+    
+        db.Usuarios.count({ where: { email: req.body.email } }).then(count => {
+          if (count != 0) {
+            return res.render("register", {
+              errors: [{ msg: "El email ya se encuentra registrado" }],
+              data: req.body
+            });
           } else {
-              usuarios = JSON.parse(archivoUsuario);
+            if (!errors.isEmpty()) {
+              return res.render("register", {
+                errors: errors.errors,
+                data: req.body
+              });
+            } else {
+              db.Usuarios.create({
+                name: req.body.first_name + ' ' + req.body.last_name,
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                identification_number: req.body.document,
+                password: bcrypt.hashSync(req.body.password, 10),
+                avatar: req.files[0].filename,
+                type: req.body.type,
+                amount: req.body.amount
+              });
+              return res.redirect("/users/login");
+            }
           }
-
-          db.Usuarios.create({
-            name: req.body.first_name + req.body.last_name,
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            identification_number: req.body.document,
-            password: bcrypt.hashSync(req.body.password, 10),
-            avatar: req.files[0].filename,
-            type: req.body.type,
-            amount: req.body.amount
-          });
-          usuarios.push(usuario);
-
-          usuariosJSON = JSON.stringify(usuarios);
-
-          fs.writeFileSync(usersData, usuariosJSON);
-
-          return res.render('index');
-        } else {
-          return res.render('register', {errors: errors.errors})
-        }
+        });
       },
       login: function(req, res, next) {
         res.render('login');
       },
       processLogin: function(req, res, next) {
         let errors = validationResult(req);
-
+    
         if (errors.isEmpty()) {
-          let archivoUsuario = fs.readFileSync(usersData, {encoding: 'utf-8'});
-          let usuarios;
-          if (archivoUsuario == '') {
-            usuarios = [];
-          } else {
-            usuarios = JSON.parse(archivoUsuario);
-          }
-
-          for (let i = 0; i < usuarios.length; i++) {
-            if (req.body.email == usuarios[i].email) {
-              if (bcrypt.compareSync(req.body.password, usuarios[i].password)) {
-                var usuarioALoguearse = usuarios[i];
-              break;
+          db.Usuarios.findOne({ where: { email: req.body.email } })
+            .then(function(usuario) {
+              console.log(usuario);
+              
+              if (!bcrypt.compareSync(usuario.password, req.body.password)) {
+                req.session.login = usuario
+                delete usuario.password
+                if (req.body.recordarme) {
+                  res.cookie('recordarme',
+                  usuario.email, { maxAge: 600000 })
+                  console.log('cookie')
+                } 
+                res.redirect("/");
+              } else {
+                res.render("login", {
+                  errors: [{msg: "Contraseña incorrecta"}]
+                });
               }
-            }
-          }
-          if (usuarioALoguearse == undefined) {
-            return res.render('login', {errors: [
-              {msg: 'Datos inválidos'}
-            ]});
-          }
-          usuarioALoguearse = req.session.login;
-          console.log(usuarioALoguearse)
-          res.render('index');
+            })
+            .catch(function(error){
+              res.render("login", {
+                errors: [{msg: "Cuenta inexistente"}]
+              })
+            })
         } else {
-          return res.render('login', {errors: errors.errors});
-        } 
+          res.render("login", { errors: errors.errors, data: req.body });
+        }
       },
-      
+      logout: function(req, res) {
+        res.cookie('recordarme', null, { maxAge: -1 })
+        req.session.destroy()
+        res.redirect('/');
+      },
       misProyectos: function(req, res, next) {
         res.render('myprojects');
       },
-      editar: function(req, res, next) {
-        res.render('edit');
+      editar: function(req, res) {
+        db.Usuarios.findByPk(req.params.id)
+        .then(function(usuario) {
+          res.render('editProfile', {usuario: usuario});
+        })
+      },
+      update: function(req, res) {
+        db.Usuarios.update({
+            nombre: req.body.first_name,
+            apellido: req.body.last_name,
+            email: req.body.email,
+            contraseña: req.body.password,
+            avatar: req.body.avatar,
+            amount: req.body.amount
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect('/')
       },
       list: function(req, res, next) {
         res.render('userList')

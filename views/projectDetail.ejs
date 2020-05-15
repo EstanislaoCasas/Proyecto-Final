@@ -14,17 +14,26 @@
                 <h1><%= proyecto.title %></h1>
                 <h4><%= proyecto.short_description %></h4>
                 <h5><%= proyecto.long_description %></h5>
-                <p>$<%= proyecto.amount %></p>
+                <p>$<%= proyecto.amount%></p>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
                         amount
                     </div>
                 </div>
+                <div class="space"></div>
+                <form action="" method="GET" class="donacion">
+                </form>
+                <script src="/javascripts/proyectDetail.js"></script>
+                <% if(login) { %>
                 <div class="buttons">
+                    <% if(type == 'Emprendedor' && id == proyecto.usuario.id) { %>
                     <a href="/projects/edit/<%= proyecto.id %>"><button type="button" class="edit btn btn-secondary btn-lg btn-block">Editar</button></a>
                     <div class="space"></div>
-                    <a href=""><button type="button" class="contribute btn btn-primary btn-lg btn-block">Quiero Aportar</button></a>
+                    <% } else if(type == 'Donante') { %>
+                    <button type="button" class="contribute btn btn-primary btn-lg btn-block">Quiero Aportar</button>
+                    <% } %>
                 </div>
+                <% } %>
             </div>
         </div>
     </div>
