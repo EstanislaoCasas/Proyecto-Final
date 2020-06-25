@@ -14,14 +14,14 @@
                 <h1><%= proyecto.title %></h1>
                 <h4><%= proyecto.short_description %></h4>
                 <h5><%= proyecto.long_description %></h5>
-                <p>$<%= proyecto.amount%></p>
+                <p>$ <%= proyecto.donations_total %>  /  $ <%= proyecto.amount %></p>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                        amount
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= proyecto.donations_total * 100 / proyecto.amount %>%">
+                        <%= proyecto.donations_total * 100 / proyecto.amount %> %
                     </div>
                 </div>
                 <div class="space"></div>
-                <form action="" method="GET" class="donacion">
+                <form action="/projects/<%= proyecto.id %>" method="POST" class="donacion">
                 </form>
                 <script src="/javascripts/proyectDetail.js"></script>
                 <% if(login) { %>

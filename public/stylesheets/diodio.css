@@ -1,0 +1,49 @@
+header {
+background-color: rgb(74, 133, 209);
+color: white
+}
+
+.fondo {
+    background-color: gray;
+    padding: 10px
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: white;
+}
+
+.img {
+    max-width: 100%;
+    max-height: 200px;
+    height: auto;
+}
+
+.cantidad {
+    padding: 15px 0px;
+    text-align: center;
+}
+
+.descripcion {
+    text-align: center;
+}
+
+.buttons .btn {
+    margin: 5px;
+}
+
+.precio {
+    background-color: rgb(201, 201, 201);
+}
+
+.precio-item {
+    display: flex;
+    border-bottom: 2px solid black;
+}
+
+.comprar {
+    margin-top: 20px;
+}

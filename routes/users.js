@@ -43,7 +43,7 @@ router.post('/edit', usersController.update);
 router.get('/list', usersController.list);
 
 router.get('/check', function(req, res) {
-  if (req.session.login == undefined) {
+  if (!req.session.login) {
     res.send('No estas logueado');
   } else {
     res.send('El usuario Logueado es ' + req.session.login.email);

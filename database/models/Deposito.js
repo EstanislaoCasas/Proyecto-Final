@@ -14,6 +14,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         updated_at: {
             type: dataTypes.DATE
+        },
+        user_id: {
+            type: dataTypes
         }
     };
     let config = {
@@ -21,6 +24,13 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     };
     const Deposito = sequelize.define(alias, cols, config);
+
+    Deposito.associate = function(models) {
+        Deposito.belongsTo(models.Usuarios, {
+            as: 'usuario',
+            foreignKey: 'user_id'
+        })
+    }
 
     return Deposito;
 }

@@ -4,7 +4,7 @@
             <a class="logo col-12 col-sm-5 col-md-5 col-lg-3 col-xl-2" href="/">
                 <img src="/images/Logo.PNG" alt="150px" width="180px">
             </a>
-            <div class="search col-9 col-sm-5 col-md-5 col-lg-4 col-xl-5">
+            <div class="search col-9 col-sm-5 col-md-5 col-lg-4 col-xl-6">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Buscar un proyecto" aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
@@ -14,42 +14,42 @@
                     </div>
                 </div>
             </div>
-            <button class="navbar-toggler col-3 col-sm-2 col-md-2 col-lg-5 col-xl-5" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <button class="navbar-toggler col-3 col-sm-2 col-md-2 col-lg-5 col-xl-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <% if(login && type == 'Emprendedor') { %>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/projects/add">Subir un proyecto</a>
-                    </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/projects/add">Subir un proyecto</a>
+                        </li>
                     <% } else if (login && type == 'Donante') { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/projects">Aportar</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/projects">Aportar</a>
+                        </li>
                     <% } else { %>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/projects/add">Subir un proyecto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/projects">Aportar</a>
-                    </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/projects/add">Subir un proyecto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/projects">Aportar</a>
+                        </li>
                     <% } %>
-                    <% if(!login) { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users/login">Ingresar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users/register">Registrarse</a>
-                    </li>
+                    <% if(login) { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/edit">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/my-projects">Mis Proyectos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/logout">Cerrar sesión</a>
+                        </li>
                     <% } else { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users/edit">Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users/my-projects">Mis Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users/logout">Cerrar sesión</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/login">Ingresar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/register">Registrarse</a>
+                        </li>
                    <% } %> 
                 </ul>
             </div>

@@ -1,6 +1,4 @@
 let bcrypt = require('bcrypt');
-let fs = require('fs');
-let path = require('path')
 let {check, validationResult, body} = require('express-validator');
 let db = require('../database/models');
 
@@ -49,18 +47,17 @@ let usersController= {
         if (errors.isEmpty()) {
           db.Usuarios.findOne({ where: { email: req.body.email } })
             .then(function(usuario) {
-              console.log(usuario);
-              
-              if (!bcrypt.compareSync(usuario.password, req.body.password)) {
+              if (bcrypt.compareSync(req.body.password, usuario.password)) {
+                req.session.user_id = usuario.id
                 req.session.login = usuario
                 delete usuario.password
                 if (req.body.recordarme) {
                   res.cookie('recordarme',
-                  usuario.email, { maxAge: 600000 })
-                  console.log('cookie')
+                  usuario.email, { maxAge: 60000 })
                 } 
                 res.redirect("/");
-              } else {
+              } 
+              else {
                 res.render("login", {
                   errors: [{msg: "Contraseña incorrecta"}]
                 });
@@ -85,8 +82,8 @@ let usersController= {
       },
       editar: function(req, res) {
         db.Usuarios.findByPk(req.params.id)
-        .then(function(usuario) {
-          res.render('editProfile', {usuario: usuario});
+          .then(function(usuario) {
+            res.render('editProfile', {usuario: usuario});
         })
       },
       update: function(req, res) {

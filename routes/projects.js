@@ -22,12 +22,11 @@ router.get('/add', loginMiddleware, projectsController.crear);
 router.post('/add', upload.any(), projectsController.agregar);
 
 router.get('/:id', projectsController.detalle);
-//router.post('/:id', projectsController.donaciones);
+router.post('/:id', projectsController.donaciones);
 
 router.get('/edit/:id', projectsController.editar);
 router.post('/edit/:id', projectsController.update);
 
-router.get('/:id', projectsController.detalle);
 
 
 module.exports = router;

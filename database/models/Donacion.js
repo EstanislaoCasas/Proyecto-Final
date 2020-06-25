@@ -8,6 +8,12 @@ module.exports = (sequelize, dataTypes) => {
         },
         amount: {
             type: dataTypes.INTEGER
+        },
+        user_id: {
+            type: dataTypes
+        },
+        project_id: {
+            type: dataTypes
         }
     };
     let config = {
@@ -16,5 +22,16 @@ module.exports = (sequelize, dataTypes) => {
     };
     const Donacion = sequelize.define(alias, cols, config);
 
+    Donacion.associate = function(models) {
+        Donacion.belongsTo(models.Usuarios, {
+            as: 'usuario',
+            foreignKey: 'user_id'
+        });
+        Donacion.belongsTo(models.Proyectos, {
+            as: 'proyecto',
+            foreignKey: 'project_id'
+        })
+    };
+    
     return Donacion;
 }
